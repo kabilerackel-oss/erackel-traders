@@ -13,13 +13,77 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Erackel Traders | Global Export & Sourcing",
+  metadataBase: new URL("https://erackeltraders.com"),
+
+  title: {
+    default: "Erackel Traders | Indian Export & Global Sourcing",
+    template: "%s | Erackel Traders",
+  },
+
   description:
-    "Erackel Traders connects quality Indian products and reliable sourcing solutions with customers in international markets.",
+    "Erackel Traders is an India-based export and sourcing company supplying food products, oats, spices, industrial supplies, electrical equipment and customized procurement solutions to international buyers.",
+
+  keywords: [
+    "Indian exporters",
+    "India export company",
+    "Indian product suppliers",
+    "global sourcing from India",
+    "oats exporter India",
+    "food products exporter India",
+    "spices exporter India",
+    "industrial supplies exporter",
+    "electrical equipment exporter India",
+    "custom sourcing India",
+  ],
+
+  authors: [
+    {
+      name: "Erackel Traders",
+    },
+  ],
+
+  creator: "Erackel Traders",
+  publisher: "Erackel Traders",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://erackeltraders.com",
+    siteName: "Erackel Traders",
+    title: "Erackel Traders | Indian Export & Global Sourcing",
+    description:
+      "Connecting quality Indian products and reliable sourcing solutions with international buyers.",
+    images: [
+      {
+        url: "/logo/Logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Erackel Traders",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Erackel Traders | Indian Export & Global Sourcing",
+    description:
+      "Indian export and global sourcing solutions for international buyers.",
+    images: ["/logo/Logo.png"],
+  },
+
   icons: {
-    icon: "/logo/Logo.png",
-    shortcut: "/logo/Logo.png",
-    apple: "/logo/Logo.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
