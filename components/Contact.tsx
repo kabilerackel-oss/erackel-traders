@@ -1,4 +1,43 @@
+"use client";
+
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      eventName: string,
+      eventParameters?: Record<string, unknown>
+    ) => void;
+  }
+}
+
 export default function Contact() {
+  const trackEvent = (
+    eventName: string,
+    parameters?: Record<string, unknown>
+  ) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", eventName, parameters);
+    }
+  };
+
+  const handleFormSubmit = () => {
+    trackEvent("generate_lead", {
+      lead_source: "Website Contact Form",
+    });
+  };
+
+  const handlePhoneClick = () => {
+    trackEvent("phone_click", {
+      contact_method: "phone",
+    });
+  };
+
+  const handleEmailClick = () => {
+    trackEvent("email_click", {
+      contact_method: "email",
+    });
+  };
+
   return (
     <section id="contact" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -39,6 +78,7 @@ export default function Contact() {
 
               <a
                 href="tel:+918078795699"
+                onClick={handlePhoneClick}
                 className="text-blue-700 hover:text-blue-900 transition"
               >
                 +91 8078795699
@@ -52,6 +92,7 @@ export default function Contact() {
 
               <a
                 href="mailto:erackeltraders@gmail.com"
+                onClick={handleEmailClick}
                 className="text-blue-700 hover:text-blue-900 transition"
               >
                 erackeltraders@gmail.com
@@ -104,6 +145,7 @@ export default function Contact() {
           <form
             action="https://formsubmit.co/erackeltraders@gmail.com"
             method="POST"
+            onSubmit={handleFormSubmit}
             className="bg-white shadow-lg rounded-2xl p-8"
           >
 
