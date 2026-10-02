@@ -42,8 +42,121 @@ export const metadata: Metadata = {
 };
 
 export default function OatsPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://erackeltraders.com/#organization",
+        name: "Erackel Traders",
+        url: "https://erackeltraders.com",
+        logo: "https://erackeltraders.com/logo/Logo.png",
+        telephone: "+918078795699",
+        email: "erackeltraders@gmail.com",
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://erackeltraders.com/#website",
+        url: "https://erackeltraders.com",
+        name: "Erackel Traders",
+        publisher: {
+          "@id": "https://erackeltraders.com/#organization",
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://erackeltraders.com/products/oats#webpage",
+        url: "https://erackeltraders.com/products/oats",
+        name: "Bulk Oats Supplier, Wholesaler & Exporter in India",
+        description:
+          "Erackel Traders supplies bulk oats from India for food manufacturers, wholesalers, distributors, retailers and international buyers.",
+        isPartOf: {
+          "@id": "https://erackeltraders.com/#website",
+        },
+        about: {
+          "@type": "Thing",
+          name: "Bulk Oats Supply",
+        },
+        breadcrumb: {
+          "@id": "https://erackeltraders.com/products/oats#breadcrumb",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://erackeltraders.com/products/oats#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://erackeltraders.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Oats",
+            item: "https://erackeltraders.com/products/oats",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://erackeltraders.com/products/oats#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Do you supply oats in bulk?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. We can discuss bulk oats sourcing requirements for wholesalers, distributors, food manufacturers and international buyers.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can you supply rolled oats?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Rolled oats can be sourced according to the required specification, quantity, packaging and destination.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you supply oats to wholesalers and distributors?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Our sourcing service is available for wholesale, distribution and commercial procurement requirements.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can you export oats from India?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "We can evaluate international oats enquiries based on product specifications, quantity, packaging, destination and applicable logistics requirements.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How can I request an oats quotation?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Send us your required quantity, oats specification, packaging preference and destination through the enquiry form on this page.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="bg-white text-gray-800">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
 
       {/* Hero */}
       <section className="relative bg-blue-950 text-white py-24 overflow-hidden">
